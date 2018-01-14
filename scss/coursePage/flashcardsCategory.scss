@@ -1,0 +1,21 @@
+.category{
+    .category-list{
+        .cube{
+            background-color: #1abc9c;
+            height: 200px;
+            margin:10px 0;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            &:hover{
+                background-color: #10997e;
+                cursor: pointer;
+            }
+            span{
+                color: white;
+                text-transform: uppercase;
+                font-size: 2em;
+             }
+        }
+    }
+}

@@ -1,0 +1,272 @@
+.register-section{
+    background-color: #676056;
+    height: 810px;
+    display: flex;
+}
+
+.form {
+    width: 100%;
+    .field{
+        position: relative;
+        margin: 0 50px;
+        i{
+            font-size: 18px;
+            left: 0px;
+            top: 0px;
+            position: absolute;
+            height: 44px;
+            width: 44px;
+            color: #f7f3eb;
+            background: #676056;
+            text-align: center;
+            line-height: 44px;
+            transition: all 0.3s ease-out;
+            pointer-events: none;
+        }
+    }
+    .radioButton{
+        text-align: center;
+        .women{
+            margin-right: 30px;
+        }
+    }
+}
+
+
+.register {
+    position: relative;
+    margin: auto;
+    width: 400px;
+    height: 630px;
+    background: white;
+    border-radius: 3px;
+    &:before{
+        content: '';
+        position: absolute;
+        top: -8px;
+        right: -8px;
+        bottom: -8px;
+        left: -8px;
+        z-index: -1;
+        background: rgba(255, 255, 255, 0.1);
+        border-radius: 4px;
+    }
+    h1 {
+        line-height: 55px;
+        font-size: 24px;
+        font-weight: bold;
+        text-transform: uppercase;
+        color: #fff;
+        text-align: center;
+        background: $headerbg;
+        border-top-left-radius: 3px;
+        border-top-right-radius: 3px;
+    }
+    .submit {
+        text-align: center;
+    }
+    p{
+        &:first-child{ 
+            margin-top: 30px;
+        }
+    .remember {
+        float: left;
+        label{
+            color: #a7a599;
+            font-size: 12px;
+            cursor: pointer;
+            }
+        }
+        .forgot{float: right;margin-right: 50px;
+            a{
+                color: #a7a599;
+                font-size: 12px;
+                text-decoration: none;
+                font-style: italic;
+                transition: all 0.3s ease-out;
+                &:hover{
+                    color: #f2672e;
+                }
+            }
+        }
+    }
+}
+
+::-webkit-input-placeholder {
+  color: #ded9cf;
+}
+
+:-moz-placeholder {
+  color: #ded9cf !important;
+}
+
+.form input[type=text], input[type=password], input[type=email], input[type=date] {
+    font-size: 14px;
+    font-weight: 400;
+    padding: 10px 15px 10px 55px;
+    position: relative;
+    width: 220px;
+    height: 24px;
+    color: #676056;
+    border: none;
+    background: #f7f3eb;
+    color: #777;
+    transition: color 0.3s ease-out;
+    box-sizing: content-box;
+}
+
+.form input[type=text], input[type=password], input[type=email], input[type=date] {
+    margin-bottom: 15px;
+}
+
+.form input[type=text]:hover ~ i,
+.form input[type=password]:hover ~ i,
+.form input[type=email]:hover ~ i, .form input[type=date]:hover ~ i {
+    color: $iconhover;
+}
+
+.form input[type=text]:focus ~ i,
+.form input[type=password]:focus ~ i,
+.form input[type=email]:focus ~ i,
+.form input[type=date]:focus ~ i {
+    color:  $iconhover;
+}
+
+.form input[type=text]:focus,
+.form input[type=password]:focus,
+.form input[type=button]:focus,
+.after-register input[type=button]:focus {
+    outline: none;
+}
+
+.form input[type=button],
+.after-register input[type=button] {
+    margin-top: 35px;
+    width: 270px;
+    text-align: center;
+    font-size: 14px;
+    font-weight: bold;
+    padding: 12px 0;
+    letter-spacing: 0;
+    box-shadow: inset 0px 0px 0px 0px $buttonhover;
+
+  color: #fff;
+  background-color: $buttoncolor;
+  text-shadow: none;
+  text-transform: uppercase;
+  border: none;
+  cursor: pointer;
+  position: relative;
+  margin-bottom: 20px;
+  -webkit-animation: shadowFadeOut 0.4s;
+  -moz-animation: shadowFadeOut 0.4s;
+}
+
+.form input[type=button]:hover,input[type=button]:focus,
+.after-register input[type=button]:hover,
+.after-register input[type=button]:focus{
+  color: #fff;
+  box-shadow:inset 0px 46px 0px 0px $buttonhover;
+  -webkit-animation: shadowFade 0.4s;
+  -moz-animation: shadowFade 0.4s;
+}
+
+.after-register{
+    text-align: center;
+    .after-register-header{
+        padding: 70px;
+    }
+    span{
+        display: block;
+        &.lat-span{
+            margin-bottom: 55px;
+        }
+    }
+}
+// .form input[type="checkbox"] {
+//     display:none;
+// }
+
+// .form input[type="checkbox"] + label span {
+//     display:inline-block;
+//     width:16px;
+//     height:16px;
+//     margin: -2px 4px 0 50px;
+//     vertical-align:middle;
+//     background:url("../img/checkbox.png") left top no-repeat;
+//     cursor:pointer;
+// }
+// .form input[type="checkbox"]:checked + label span {
+//     background:url("../img/checkbox.png") -16px top no-repeat;
+// }
+
+/*keyframes for input animation*/
+
+@keyframes shadowFade {
+    0% {
+      box-shadow: inset 0px 0px 0px 0px $buttonhover;
+      color: #fff;
+    }
+    100% {
+      box-shadow: inset 0px 46px 0px 0px $buttonhover;
+      color: #fff;
+    }
+}
+
+@keyframes shadowFadeOut {
+    0% {
+      box-shadow: inset 0px 46px 0px 0px $buttonhover;
+      color: #fff;
+    }
+    100% {
+      box-shadow: inset 0px 0px 0px 0px  $buttonhover;
+      color: #fff;
+    }
+}
+
+@-webkit-keyframes shadowFade {
+    0% {
+     
+      box-shadow: inset 0px 0px 0px 0px $buttonhover;
+      color: #fff;
+    }
+    100% {
+    
+      box-shadow: inset 0px 46px 0px 0px $buttonhover;
+      color: #fff;
+    }
+}
+
+@-webkit-keyframes shadowFadeOut {
+    0% {     
+      box-shadow: inset 0px 46px 0px 0px $buttonhover;
+      color: #fff;
+    }
+    100% {
+   
+      box-shadow: inset 0px 0px 0px 0px $buttonhover;
+      color: #fff;
+    }
+}
+
+@-moz-keyframes shadowFade {
+    0% {
+      box-shadow: inset 0px 0px 0px 0px $buttonhover;
+      color: #fff;
+    }
+    100% {
+      box-shadow: inset 0px 46px 0px 0px $buttonhover;
+      color: #fff;
+    }
+}
+
+@-moz-keyframes shadowFadeOut {
+    0% {
+      box-shadow: inset 0px 44px 0px 0px $buttonhover;
+      color: #fff;
+    }
+    100% {
+      box-shadow: inset 0px 0px 0px 0px $buttonhover;
+      color: #fff;
+    }
+} 

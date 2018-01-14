@@ -1,0 +1,49 @@
+.offer{
+    position: relative;
+    padding: 40px 0;
+    background: #F5F5F5;
+    display: block;
+    .offer-bg{
+        background-image: url('/../image/ulice.jpg');
+        position: absolute;
+        top: 0;
+        bottom: 0;
+        margin-left: 50%;
+        background-position: center;
+        background-size: cover;
+        background-repeat: no-repeat;
+        min-height: 200px;
+        width: 50%;
+    }
+    .content-offer{
+        color: #444;
+        font-size: 18px;
+        line-height: 1.6;
+        font-weight: 400;
+        .section-title{
+            text-align: left;
+            margin-bottom: 21px;
+            h2{
+                font-weight: 400;
+                letter-spacing: 1px;
+                text-transform: uppercase;
+                margin: 0 auto 15px;
+                width: auto;
+            }
+        }
+        .offer-list{
+            position: relative;
+            display: block;
+            &:before{
+                content: "";
+                border-left: 1px solid #3f3f3f;
+                height: 85px;
+                position: absolute;
+
+            }
+            .list{
+                padding-left: 65px;
+            }
+        }
+    }
+}

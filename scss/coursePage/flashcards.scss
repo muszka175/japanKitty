@@ -1,0 +1,32 @@
+.flashcards-background{
+    background-color: #f5f5f5;
+    .flashcards-container{
+        display: block;
+        margin: auto;
+        padding-top: 100px;
+        padding-bottom: 175px;
+        .flashcards{
+            background-color: #fff;
+            height: 200px;
+            width: 350px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+        .submit-container{
+            display: block;
+            margin: 50px;
+            input[type=submit]{
+                padding: 10px 25px;
+                margin-right: 30px;
+                width: 115px;
+            }
+            .true{
+                background-color: #1abc9c;
+            }
+            .false{
+                background-color: #e41330;
+            }
+        }
+    }
+}
