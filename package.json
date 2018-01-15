@@ -17,6 +17,7 @@
     "vue": "^2.4.4",
     "vue-agile": "^0.3.6",
     "vue-router": "^3.0.1",
+    "vue-session": "^0.9.10",
     "vue-smooth-scroll": "^1.0.13",
     "vue-swipe": "^2.3.0"
   },

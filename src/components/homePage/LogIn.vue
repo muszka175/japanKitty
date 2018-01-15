@@ -4,57 +4,66 @@
     <div class="login-section">
       <div class="login">
         <h1>Login</h1>
-        <form class="form" method="post" action="#" @submit.prevent="validateBeforeSubmit" v-if="!formSubmitted">
-          <div class="field">
-            <input v-model="email" class="form-control" type="email" placeholder="Email"/>
+        <form class="form" method="post" action="#" v-if="!submitted">
+          <div class="field" >
+            <input v-model="login.email" data-rules="required|email" class="form-control" type="email" placeholder="Email"/>
             <i class="fa fa-user" aria-hidden="true"></i>
-            <!-- <p class="text-danger" v-show ="errors.has('name')">{{ errors.first('name') }}</p> -->
           </div>
           <div class="field">
-            <input v-model="password" class="form-control" type="password" placeholder="Password"/>
+            <input v-model="login.password" data-rules="required|password" class="form-control" type="password" placeholder="Password"/>
             <i class="fa fa-lock" aria-hidden="true"></i>
-            <!-- <p class="text-danger" v-if="errors.has('password')">{{ errors.first('password') }}</p> -->
+            <p class="text-danger" v-if="isError===true">Podano zły login lub hasło</p>
           </div>
-          <p class="submit"><input @click="test" type="submit" name="sent" value="Login"/></p>
+          <p class="submit"><input @click="signin" type="button" name="sent" value="Zaloguj"/></p>
         </form>
-        <div v-else>
-          <h1 class="submitted">Form submitted successfully!</h1>
-        </div>
+        <div v-if="submitted" class="after-login">
+            <h3 class="after-login-header">Zalogowano!</h3>
+            <span>Aby przejść do kursu kliknij przycik poniżej.</span>
+            <span>Życzymy owocnej nauki, </span>
+            <span class="last-span">zespół JapanKitty</span>
+            <router-link to="/course" exact><input type="button" value="Przejdź do kursu" class="after-login-button"/></router-link>
       </div>
     </div>
+  </div>
   </div>
 </template>
 
 <script>
-import HomePageHeader from './HomePageHeader.vue';
+import HomePageHeader from "./HomePageHeader.vue";
+import Vue from "vue";
+import authService from "../../services/authService";
 
 export default {
-  components:{
-    'app-header' : HomePageHeader
+  components: {
+    "app-header": HomePageHeader
   },
-  data () {
+  data() {
     return {
-      email: '',
-      password: '',
-      formSubmitted: false
-    }
+      login: {
+        email: "",
+        password: ""
+      },
+      submitted: false,
+      isError: false
+    };
   },
-   methods: {
-  //   validateBeforeSubmit(e) {
-  //       this.$validator.validateAll();
-  //       if (!this.errors.any()) {
-  //           this.submitForm()
-  //       }
-  //     },
-  //   submitForm(){
-  //     this.formSubmitted = true
-  //   }
-      test() {
-        this.$http.get("http://localhost/api/login")
-        .then((response)=> {
-          console.log(response)
-        })
-      }
-   }
-}
+  beforeCreate() {
+    if(authService.getToken() !== null) this.$router.push("/course");
+  },
+  methods: {
+    submitForm() {
+      this.submitted = true;
+    },
+    signin() {
+      const success = () => {
+        this.isError = false;
+        this.$router.push("/course");
+      };
+      const error = () => {
+        this.isError = true;
+      };
+      authService.login(this.login, success, error);
+    }
+  }
+};
 </script>

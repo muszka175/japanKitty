@@ -4,42 +4,42 @@
       <div class="register-section">
         <div class="register">
         <h1>Rejestracja</h1>
-        <form class="form" method="post" action="#" @submit.prevent="validateBeforeSubmit" v-if="!submitted">
+        <form class="form" method="post" action="#" v-if="!submitted">
           <div class="field" :class="{'has-error': errors.hasOwnProperty('name') }">
-            <input v-model="register.name" data-rules="required|alpha|min:3" class="form-control" type="text" name="name" placeholder="Imię"/>
+            <input v-model="newUser.name" data-rules="required|alpha|min:3" class="form-control" type="text" name="name" placeholder="Imię"/>
             <i class="fa fa-user" aria-hidden="true"></i>
             <p class="text-danger" v-if="errors.hasOwnProperty('name')">{{ errors.name[0] }}</p>
           </div>
           <!-- <p class="field">
-            <input v-model="register.lastname" class="form-control" type="text" name="lastname" placeholder="Nazwisko" required/>
+            <input v-model="newUser.lastname" class="form-control" type="text" name="lastname" placeholder="Nazwisko" required/>
             <i class="fa fa-address-card" aria-hidden="true"></i>
           </p> -->
           <div class="field" :class="{'has-error': errors.hasOwnProperty('email') }">
-            <input v-model="register.email" data-rules="required|email" class="form-control" type="email" name="email" placeholder="E-mail"/>
+            <input v-model="newUser.email" data-rules="required|email" class="form-control" type="email" name="email" placeholder="E-mail"/>
             <i class="fa fa-envelope" aria-hidden="true"></i>
             <p class="text-danger" v-if="errors.hasOwnProperty('email')">{{ errors.email[0] }}</p>
           </div>
           <div class="field" :class="{'has-error': errors.hasOwnProperty('password') }">
-            <input v-model="register.password" data-rules="required|password" class="form-control" type="password" name="password" placeholder="Hasło"/>
+            <input v-model="newUser.password" data-rules="required|password" class="form-control" type="password" name="password" placeholder="Hasło"/>
             <i class="fa fa-lock" aria-hidden="true"></i>
             <p class="text-danger" v-if="errors.hasOwnProperty('password')">{{ errors.password[0] }}</p>
           </div>
           <div class="field">
-            <input v-model="register.confirmPassword" data-rules="required|confirmPassword" class="form-control" type="password" name="confirmPassword" placeholder="Powtórz hasło" required/>
+            <input v-model="newUser.confirmPassword" data-rules="required|confirmPassword" class="form-control" type="password" name="confirmPassword" placeholder="Powtórz hasło" required/>
             <i class="fa fa-lock" aria-hidden="true"></i>
-            <p class="text-danger" v-if="register.password !== register.confirmPassword">Hasła nie są zgodne</p>
+            <p class="text-danger" v-if="newUser.password !== confirmPassword">Hasła nie są zgodne</p>
           </div>
           <!-- <p class="field radioButton">
-            <input id="box1" class="form-control" type="radio" name="sex" required v-model="register.sex"/>
+            <input id="box1" class="form-control" type="radio" name="sex" required v-model="newUser.sex"/>
             <label class="women" for="box1">Kobieta</label>
-            <input id="box2" class="form-control" type="radio" name="sex" required v-model="register.sex"/>
+            <input id="box2" class="form-control" type="radio" name="sex" required v-model="newUser.sex"/>
             <label for="box2">Mężczyzna</label>
           </p>
           <p class="field">
-            <input v-model="register.bday" class="form-control" type="date" name="bday" placeholder="Data urodzenia" required/>
+            <input v-model="newUser.bday" class="form-control" type="date" name="bday" placeholder="Data urodzenia" required/>
             <i class="fa fa-calendar" aria-hidden="true"></i>
           </p> -->
-          <p class="submit"><input @click="test" type="button" name="sent" value="Register"/></p>
+          <p class="submit"><input @click="register" type="button" name="sent" value="Register"/></p>
         </form>
         <div v-if="submitted" class="after-register">
             <h3 class="after-register-header">Dziękujemy za poprawne zarejestrowanie się!</h3>
@@ -55,6 +55,7 @@
 
 <script>
 import HomePageHeader from "./HomePageHeader.vue";
+import authService from "../../services/authService";
 
 export default {
   components: {
@@ -63,42 +64,33 @@ export default {
 
   data() {
     return {
-      register: {
+      newUser: {
         name: "",
         // lastname: '',
         email: "",
-        password: "",
-        confirmPassword: '',
+        password: ""
         // sex: '',
         // bday: ''
       },
       submitted: false,
-      errors: {
-        
-      }
+      confirmPassword: "",
+      errors: {}
     };
   },
   methods: {
-    test() {
-      this.$http
-        .post("http://localhost/api/register", this.register)
-        .then(response => {
-          this.submitted = true;
-        })
-        .catch(response => {
-            console.log(response);
-            this.errors = response.body.error;
-            console.log(this.errors)
-        })
+    register() {
+      const success = () => {
+        this.submitted = true;
+      };
+      const error = (response) => {
+        console.log(response);
+        this.errors = response.body.error;
+        console.log(this.errors);
+      };
+      authService.register(this.newUser, success, error);
     },
-        validateBeforeSubmit(e) {
-        this.$validator.validateAll();
-        if (!this.errors.any()) {
-            this.submitForm()
-        }
-      },
-    submitForm(){
-      this.submitted = true
+    submitForm() {
+      this.submitted = true;
     }
   }
 };
