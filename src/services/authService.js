@@ -23,11 +23,22 @@ export default {
                 error(response);
             })
     },
-    logout() {
-
+    logout(success, error) {
+        Vue.http.post("logout")
+            .then((response) => {
+                localStorage.removeItem('token')
+                success(response.data)
+            })
+            .catch(response => {
+                localStorage.removeItem('token')
+                error(response);
+            })
     },
     getToken() {
         return localStorage.getItem('token');
+    },
+    isSignedIn() {
+        return localStorage.getItem('token') !== null;
     }
 
 }

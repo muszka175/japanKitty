@@ -1,20 +1,20 @@
 <template>
   <div class="site-logo col-md-3">
+    <router-link to="/home">
       <h1 class="site-title">
-          <a href="#">JapanKitty</a>
+          JapanKitty
       </h1>
       <p class="site-description">
-          <a href="#">Zainwestuj w swoją przyszłość</a>
+          Zainwestuj w swoją przyszłość
       </p>
+      </router-link>
   </div>
 </template>
 
 <script>
 export default {
-  data () {
-    return {
-
-    }
+  data() {
+    return {};
   }
-}
+};
 </script>

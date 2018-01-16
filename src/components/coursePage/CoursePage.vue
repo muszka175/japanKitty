@@ -7,20 +7,20 @@
 </template>
 
 <script>
-import CoursePageHeader from './CoursePageHeader.vue';
-import CoursePageMyCourse from './CoursePageMyCourse.vue';
-
-
+import CoursePageHeader from "./CoursePageHeader.vue";
+import CoursePageMyCourse from "./CoursePageMyCourse.vue";
+import authService from "../../services/authService";
 
 export default {
-    components:{
-        'course-header' : CoursePageHeader,
-        'course' : CoursePageMyCourse
-    },
-  data () {
-    return {
-
-    }
+  components: {
+    "course-header": CoursePageHeader,
+    course: CoursePageMyCourse
+  },
+  data() {
+    return {};
+  },
+  beforeCreate() {
+    if(!authService.isSignedIn()) this.$router.push("/login");
   }
-}
+};
 </script>
