@@ -3,13 +3,12 @@
     <course-header></course-header> 
     <div class="container">
         <div>
-            <!-- <pre>{{ words }}</pre> -->
-            <flashcards v-bind:words="this.words" v-if="this.gameId===1"></flashcards> -->
-            <span v-if="this.gameId===2">Rozsypanka</span>
-            <span v-if="this.gameId===3">Uzupełnianka</span>
-            <span v-if="this.gameId===4">Quizy</span>
-            <span v-if="this.gameId===5">Wisielec</span>
-            <span v-if="this.gameId===6">Słownik</span>
+            <flashcards v-bind:words="this.words" v-if="this.gameId===1"></flashcards>
+            <scattered v-bind:words="this.words" v-if="this.gameId===2"></scattered>
+            <filling v-bind:words="this.words" v-if="this.gameId===3"></filling>
+            <quiz v-bind:words="this.words" v-if="this.gameId===4"></quiz>
+            <hangman v-bind:words="this.words" v-if="this.gameId===5"></hangman>
+            <dictionay v-bind:words="this.words" v-if="this.gameId===6"></dictionay>
         </div>
     </div>
   </div>
@@ -18,11 +17,21 @@
 <script>
 import CoursePageHeader from "./CoursePageHeader.vue";
 import Flashcards from "./Flashcards.vue";
+import Quiz from "./QuizView.vue";
+import Dictionary from "./DictionaryView.vue";
+import Filling from "./FillingView.vue";
+import Scattered from "./ScatteredView.vue";
+import Hangman from "./HangmanView.vue";
 
 export default {
   components: {
     "course-header": CoursePageHeader,
-    flashcards: Flashcards
+    'flashcards': Flashcards,
+    'quiz': Quiz,
+    'dictionay': Dictionary,
+    'filling': Filling,
+    'scattered': Scattered,
+    'hangman': Hangman
   },
   data() {
     return {
