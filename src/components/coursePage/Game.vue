@@ -2,16 +2,16 @@
   <div id="game">
     <course-header></course-header> 
     <div class="container">
-        <div>
-            <flashcards v-bind:words="this.words" v-if="this.gameId===1"></flashcards>
-            <scattered v-bind:words="this.words" v-if="this.gameId===2"></scattered>
-            <filling v-bind:words="this.words" v-if="this.gameId===3"></filling>
-            <quiz v-bind:words="this.words" v-if="this.gameId===4"></quiz>
-            <hangman v-bind:words="this.words" v-if="this.gameId===5"></hangman>
-            <dictionay v-bind:words="this.words" v-if="this.gameId===6"></dictionay>
-        </div>
+
+      
+        <flashcards v-bind:words="this.words" v-if="this.gameId===1"></flashcards>
+        <scattered v-bind:words="this.words" v-if="this.gameId===2"></scattered>
+        <filling v-bind:words="this.words" v-if="this.gameId===3"></filling>
+        <quiz v-bind:words="this.words" v-if="this.gameId===4 && this.words.length > 0"></quiz>
+        <hangman v-bind:words="this.words" v-if="this.gameId===5"></hangman>
+        <dictionay v-bind:words="this.words" v-if="this.gameId===6"></dictionay>
+      </div>
     </div>
-  </div>
 </template>
 
 <script>
@@ -26,24 +26,27 @@ import Hangman from "./HangmanView.vue";
 export default {
   components: {
     "course-header": CoursePageHeader,
-    'flashcards': Flashcards,
-    'quiz': Quiz,
-    'dictionay': Dictionary,
-    'filling': Filling,
-    'scattered': Scattered,
-    'hangman': Hangman
+    flashcards: Flashcards,
+    quiz: Quiz,
+    dictionay: Dictionary,
+    filling: Filling,
+    scattered: Scattered,
+    hangman: Hangman
   },
   data() {
     return {
       gameId: parseInt(this.$route.params.gameId),
       categoryId: this.$route.params.categoryId,
-      words: []
+      words: [],
     };
   },
-  methods: {},
+  methods: {
+
+  },
   mounted() {
     this.$http.get("vocabulary/" + this.categoryId).then(response => {
-    this.words = response.body;
+      this.words = response.body;
+      console.log("pobrano dane");
     });
   }
 };

@@ -4,7 +4,7 @@
         <div class="container cards">
           <div class="row">
             <div class="flashcards-container">
-              <div class="flashcards">
+              <div class="flashcards"> 
                 <span>{{ words[this.index].kana }}</span>
               </div>
               <div class="helper-container">
@@ -24,7 +24,9 @@
 </template>
 
 <script>
+
 export default {
+
   props: ['words'],
   data() {
     return {
