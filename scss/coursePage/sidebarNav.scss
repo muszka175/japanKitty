@@ -1,20 +1,51 @@
 .vertical-menu{
-    
+    margin-left: 300px;
+    min-height: 560px;
     ul{
         list-style: none;
         width: 100%;
-        li{
-            a {
-                
-                color: #F5F5F5; 
-                display: block; 
-                padding: 10px 15px; 
-                text-decoration: none; 
-                &:hover, &:focus{
-                    background: #10997e;
-                    height: auto;
+        margin-top: 50px;
+            .cube{
+                background-color: #1abc9c;
+                height: 200px;
+                margin:10px 10px;
+                display: flex;
+                justify-content: center;
+                align-items: center;
+                &:hover{
+                    background-color: #10997e;
+                    cursor: pointer;
                 }
-            }
+                a{
+                    color: white;
+                    text-transform: uppercase;
+                    font-size: 20px;
+                    width: 100%;
+                    height: 100%;
+                    display: flex;
+                    justify-content: center;
+                    align-items: center;
+                    span{
+                        text-decoration: none;
+                        color: white;
+                        height: 100%;
+                        display: flex;
+                        justify-content: center;
+                        align-items: center;
+                        margin: 5px;
+                    }
+                 }
+            // a {
+                
+            //     color: #F5F5F5; 
+            //     display: block; 
+            //     padding: 10px 15px; 
+            //     text-decoration: none; 
+            //     &:hover, &:focus{
+            //         background: #10997e;
+            //         height: auto;
+            //     }
+            // }
         }
     }
     .link-icon {

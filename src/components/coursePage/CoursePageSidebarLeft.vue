@@ -1,5 +1,5 @@
 <template>
-  <div class="sidebar-left col-md-3 align-self-start">
+  <div class="sidebar-left">
       <sidebar-nav></sidebar-nav>
   </div>
 </template>
