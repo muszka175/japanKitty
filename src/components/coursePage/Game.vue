@@ -1,17 +1,13 @@
 <template>
   <div id="game">
     <course-header></course-header> 
-    <div class="container">
-
-      
-        <flashcards v-bind:words="this.words" v-if="this.gameId===1"></flashcards>
-        <scattered v-bind:words="this.words" v-if="this.gameId===2"></scattered>
-        <filling v-bind:words="this.words" v-if="this.gameId===3"></filling>
-        <quiz v-bind:words="this.words" v-if="this.gameId===4 && this.words.length > 0"></quiz>
-        <hangman v-bind:words="this.words" v-if="this.gameId===5"></hangman>
-        <dictionay v-bind:words="this.words" v-if="this.gameId===6"></dictionay>
-      </div>
-    </div>
+      <flashcards v-bind:words="this.words" v-if="this.gameId===1"></flashcards>
+      <scattered v-bind:words="this.words" v-if="this.gameId===2"></scattered>
+      <filling v-bind:words="this.words" v-if="this.gameId===3"></filling>
+      <quiz v-bind:words="this.words" v-if="this.gameId===4 && this.words.length > 0"></quiz>
+      <hangman v-bind:words="this.words" v-if="this.gameId===5"></hangman>
+      <dictionay v-bind:words="this.words" v-if="this.gameId===6"></dictionay>
+  </div>
 </template>
 
 <script>

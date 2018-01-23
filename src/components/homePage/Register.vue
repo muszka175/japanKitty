@@ -6,39 +6,43 @@
         <h1>Rejestracja</h1>
         <form class="form" method="post" action="#" v-if="!submitted">
           <div class="field" :class="{'has-error': errors.hasOwnProperty('name') }">
-            <input v-model="newUser.name" data-rules="required|alpha|min:3" class="form-control" type="text" name="name" placeholder="Imię"/>
+            <input v-model="newUser.name" data-vv-rules="required|alpha|min:3" class="form-control" type="text" name="name" placeholder="Imię"/>
             <i class="fa fa-user" aria-hidden="true"></i>
             <p class="text-danger" v-if="errors.hasOwnProperty('name')">{{ errors.name[0] }}</p>
           </div>
-          <!-- <p class="field">
-            <input v-model="newUser.lastname" class="form-control" type="text" name="lastname" placeholder="Nazwisko" required/>
+          <div class="field" :class="{'has-error': errors.hasOwnProperty('surname') }">
+            <input v-model="newUser.surname" class="form-control" type="text" name="surname" placeholder="Nazwisko" data-vv-rules="required|alpha|min:3"/>
             <i class="fa fa-address-card" aria-hidden="true"></i>
-          </p> -->
+            <p class="text-danger" v-if="errors.hasOwnProperty('surname')">{{ errors.surname[0] }}</p>
+          </div>
           <div class="field" :class="{'has-error': errors.hasOwnProperty('email') }">
-            <input v-model="newUser.email" data-rules="required|email" class="form-control" type="email" name="email" placeholder="E-mail"/>
+            <input v-model="newUser.email" data-vv-rules="required|email" class="form-control" type="email" name="email" placeholder="E-mail"/>
             <i class="fa fa-envelope" aria-hidden="true"></i>
             <p class="text-danger" v-if="errors.hasOwnProperty('email')">{{ errors.email[0] }}</p>
           </div>
           <div class="field" :class="{'has-error': errors.hasOwnProperty('password') }">
-            <input v-model="newUser.password" data-rules="required|password" class="form-control" type="password" name="password" placeholder="Hasło"/>
+            <input v-model="newUser.password" ddata-vv-rules="required|password" class="form-control" type="password" name="password" placeholder="Hasło"/>
             <i class="fa fa-lock" aria-hidden="true"></i>
             <p class="text-danger" v-if="errors.hasOwnProperty('password')">{{ errors.password[0] }}</p>
           </div>
           <div class="field">
-            <input v-model="newUser.confirmPassword" data-rules="required|confirmPassword" class="form-control" type="password" name="confirmPassword" placeholder="Powtórz hasło" required/>
+            <input v-model="confirmPassword" data-vv-rules="required|confirmPassword" class="form-control" type="password" name="confirmPassword" placeholder="Powtórz hasło" required/>
             <i class="fa fa-lock" aria-hidden="true"></i>
             <p class="text-danger" v-if="newUser.password !== confirmPassword">Hasła nie są zgodne</p>
           </div>
-          <!-- <p class="field radioButton">
-            <input id="box1" class="form-control" type="radio" name="sex" required v-model="newUser.sex"/>
-            <label class="women" for="box1">Kobieta</label>
-            <input id="box2" class="form-control" type="radio" name="sex" required v-model="newUser.sex"/>
-            <label for="box2">Mężczyzna</label>
-          </p>
-          <p class="field">
-            <input v-model="newUser.bday" class="form-control" type="date" name="bday" placeholder="Data urodzenia" required/>
+          <div class="radios">
+            <div class="field radioButton" :class="{'has-error': errors.hasOwnProperty('sex') }">
+              <input id="box1" class="form-control" type="radio" name="sex" data-vv-rules="'required'" value="Woman" v-model="newUser.sex"/>
+              <label class="women" for="box1">Kobieta</label>
+              <input id="box2" class="form-control" type="radio" name="sex" data-vv-rules="'required'" value="Man" v-model="newUser.sex"/>
+              <label for="box2">Mężczyzna</label>
+            </div>
+            <p class="text-danger" v-if="errors.hasOwnProperty('sex')">{{ errors.sex[0] }}</p>
+          </div>
+          <div class="field" :class="{'has-error': errors.hasOwnProperty('birthday') }">
+            <input v-model="newUser.birthday" class="form-control" type="date" name="birthday" placeholder="Data urodzenia" data-vv-rules="'required'"/>
             <i class="fa fa-calendar" aria-hidden="true"></i>
-          </p> -->
+          </div>
           <p class="submit"><input @click="register" type="button" name="sent" value="Register"/></p>
         </form>
         <div v-if="submitted" class="after-register">
@@ -66,11 +70,11 @@ export default {
     return {
       newUser: {
         name: "",
-        // lastname: '',
+        surname: '',
         email: "",
-        password: ""
-        // sex: '',
-        // bday: ''
+        password: "",
+        sex: '',
+        birthday: ''
       },
       submitted: false,
       confirmPassword: "",

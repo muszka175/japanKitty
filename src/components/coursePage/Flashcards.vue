@@ -2,24 +2,45 @@
     <div class="flashcards-section" v-if="this.words.length > 0">
       <div class="flashcards-background">
         <div class="container cards">
+            <div class="type-buttons" v-if="!type">
+              <div class="row">
+              <button class="col-md-4" @click="selectType(1)">Kanji</button>
+              <button class="col-md-4" @click="selectType(2)">Kana</button>
+              <button class="col-md-4" @click="selectType(3)">Polski</button>
+              </div>
+            </div>
+            <div v-if="type">
           <div class="row">
             <div class="flashcards-container">
               <div class="flashcards"> 
-                <span>{{ words[this.index].kana }}</span>
+                <span v-if="this.type === 1">{{ words[this.index].kanji }}</span>
+                <span v-if="this.type === 2">{{ words[this.index].kana }}</span>
+                <span v-if="this.type === 3">{{ words[this.index].polish }}</span>
               </div>
               <div class="helper-container">
-                <div><span v-if="result===false">kanji</span><span v-if="result===true">{{words[this.index].kanji }}</span></div>
-                <div><span v-if="result===false">polski</span><span v-if="result===true">{{words[this.index].polish }}</span></div>
-           
+                <div class="answers" v-if="this.type === 1">
+                  <div><span v-if="result===false">kana</span><span v-if="result===true">{{words[this.index].kana }}</span></div>
+                  <div><span v-if="result===false">polski</span><span v-if="result===true">{{words[this.index].polish }}</span></div>
+                </div>
+                <div class="answers" v-if="this.type === 2">
+                  <div><span v-if="result===false">kanji</span><span v-if="result===true">{{words[this.index].kanji }}</span></div>
+                  <div><span v-if="result===false">polski</span><span v-if="result===true">{{words[this.index].polish }}</span></div>
+                </div>
+                <div class="answers" v-if="this.type === 3">
+                  <div><span v-if="result===false">kanji</span><span v-if="result===true">{{words[this.index].kanji }}</span></div>
+                  <div><span v-if="result===false">kana</span><span v-if="result===true">{{words[this.index].kana }}</span></div>
+                </div>
               </div>
               <div class="submit-container">
                 <input @click="changeWord" class="true" type="submit" value="Znam"/>
                 <input @click="showResult" class="false" type="submit" value="Nie znam"/>
               </div>
+              <div>Pytanie: <span>{{this.index +1}}/{{this.words.length }}</span></div>
             </div>
           </div>
         </div>
       </div>
+    </div>
     </div>
 </template>
 
@@ -31,10 +52,14 @@ export default {
   data() {
     return {
       index: 0,
-      result: false
+      result: false,
+      type: 0
     };
   },
   methods: {
+    selectType(type) {
+      this.type = type;
+    },
     showResult(){
       this.result = true;
     },

@@ -3,7 +3,7 @@ import Login from './components/homePage/Login.vue';
 import Register from './components/homePage/Register.vue';
 import CoursePage from './components/coursePage/CoursePage.vue';
 import GameCategories from './components/coursePage/GameCategories.vue';
-import CourseSettings from './components/coursePage/CoursePageSettings.vue';
+import Settings from './components/coursePage/Settings.vue';
 import Flashcards from './components/coursePage/Flashcards.vue';
 import Game from './components/coursePage/Game.vue';
 
@@ -15,7 +15,7 @@ export default [
 
     { path: '/game/:gameId/category', component: GameCategories},
     { path: '/game/:gameId/category/:categoryId', component: Game},
-    { path: '/settings', component: CourseSettings},
+    { path: '/settings', component: Settings},
     { path: '/flashcards', component: Flashcards},
 //     { path: '/coursepage', component: CoursePage},
 //     { path: '/coursepage', component: CoursePage},
