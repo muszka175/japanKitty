@@ -8,6 +8,7 @@ import Flashcards from './components/coursePage/Flashcards.vue';
 import Game from './components/coursePage/Game.vue';
 
 export default [
+    { path: '/', component: HomePage},
     { path: '/home', component: HomePage},
     { path: '/login', component: Login},
     { path: '/register', component: Register},
