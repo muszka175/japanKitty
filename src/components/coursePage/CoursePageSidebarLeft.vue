@@ -1,5 +1,5 @@
 <template>
-  <div class="sidebar-left">
+  <div class="sidebar-left col-md-12">
       <sidebar-nav></sidebar-nav>
   </div>
 </template>

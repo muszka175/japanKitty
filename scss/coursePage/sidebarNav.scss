@@ -1,10 +1,9 @@
 .vertical-menu{
-    margin-left: 230px;
     min-height: 560px;
     ul{
         list-style: none;
         width: 100%;
-        margin-top: 50px;
+        margin-top: 150px;
             .cube{
                 background-color: #1abc9c;
                 height: 200px;
@@ -35,17 +34,6 @@
                         margin: 5px;
                     }
                  }
-            // a {
-                
-            //     color: #F5F5F5; 
-            //     display: block; 
-            //     padding: 10px 15px; 
-            //     text-decoration: none; 
-            //     &:hover, &:focus{
-            //         background: #10997e;
-            //         height: auto;
-            //     }
-            // }
         }
     }
     .link-icon {

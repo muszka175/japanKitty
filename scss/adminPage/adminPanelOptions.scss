@@ -1,0 +1,31 @@
+.admin-options{
+    .cube-list{
+        margin: 115px 0;
+        .cube{
+            background-color: #1abc9c;
+            height: 250px;
+            margin: 10px 0;
+            &:hover{
+                background-color: #10997e;
+                cursor: pointer;
+            }
+            a {
+                text-decoration: none;
+                color: white;
+                word-break: break-all;
+                width: 100%;
+                height: 100%;
+                display: flex;
+                justify-content: center;
+                align-items: center;
+                text-transform: uppercase;
+                font-size: 1.5em;
+               span {
+                    display: block;
+                    margin-right: 10px;
+                    font-size: 1.5em;
+               }
+            }
+        }
+    }
+}
