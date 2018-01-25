@@ -4,11 +4,13 @@
         <div class="container cards">
           <div class="quiz-container">
             <div v-if="!type">
-              <button @click="selectType(1)">Kanji - Kana</button>
-              <button @click="selectType(2)">Kanji - Polski</button>
-              <button @click="selectType(3)">Kana - Polski</button>
-              <button @click="selectType(4)">Polski - Kanji</button>
-              <button @click="selectType(5)">Polski - Kana</button>
+              <div class="row">
+              <div class="col-md-4"><div class="cube"><a @click="selectType(1)">Kanji - Kana</a></div></div>
+              <div class="col-md-4"><div class="cube"><a @click="selectType(2)">Kanji - Polski</a></div></div>
+              <div class="col-md-4"><div class="cube"><a @click="selectType(3)">Kana - Polski</a></div></div>
+              <div class="col-md-4"><div class="cube"><a @click="selectType(4)">Polski - Kanji</a></div></div>
+              <div class="col-md-4"><div class="cube"><a @click="selectType(5)">Polski - Kana</a></div></div>
+              </div>
             </div>
             <div v-if="type">
             <div class="row">

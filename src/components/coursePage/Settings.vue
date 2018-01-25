@@ -1,7 +1,9 @@
 <template>
-    <div>
+    <main class="settingsSection">  
         <course-header></course-header>
-            <div class="settingsSection">  
+        <div class="container">
+          <div class="row">
+            <div class="settings-container col-lg-4 offset-lg-4 col-md-6 offset-md-3 col-sm-8 offset-sm-2">
                 <div class="settings"> 
                     <h1>Ustawienia</h1>
                     <div class="message">{{this.message}}</div>
@@ -59,8 +61,10 @@
                     <router-link to="/course" exact><input type="button" value="Przejdź do kursu" class="after-register-button"/></router-link>
                 </div> -->
             </div>
-        </div>
-    </div>
+            </div>
+            </div>
+            </div>
+    </main>
 </template>
 
 <script>

@@ -1,7 +1,9 @@
 <template>
-  <div>
+  <main class="login-section">
     <app-header></app-header>
-    <div class="login-section">
+      <div class="container">
+          <div class="row">
+            <div class="login-container col-lg-4 offset-lg-4 col-md-6 offset-md-3 col-sm-8 offset-sm-2">
       <div class="login">
         <h1>Login</h1>
         <form class="form" method="post" action="#" v-if="!submitted">
@@ -23,9 +25,11 @@
             <span class="last-span">zespół JapanKitty</span>
             <router-link to="/course" exact><input type="button" value="Przejdź do kursu" class="after-login-button"/></router-link>
       </div>
+      </div>
+      </div>
     </div>
   </div>
-  </div>
+  </main>
 </template>
 
 <script>
@@ -58,6 +62,7 @@ export default {
       const success = () => {
         this.isError = false;
         this.$router.push("/course");
+        location.reload();
       };
       const error = () => {
         this.isError = true;

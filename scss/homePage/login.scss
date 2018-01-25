@@ -11,34 +11,10 @@ $iconhover:#27ae60;
     height: 810px;
     display: flex;
 }
-.form {
-    width: 100%;
-    .field{
-        position: relative;
-        margin: 0 50px;
-        i{
-            font-size: 18px;
-            left: 0px;
-            top: 0px;
-            position: absolute;
-            height: 44px;
-            width: 44px;
-            color: #f7f3eb;
-            background: #676056;
-            text-align: center;
-            line-height: 44px;
-            transition: all 0.3s ease-out;
-            pointer-events: none;
-        }
-    }
-}
-
 
 .login {
     position: relative;
     margin: auto;
-    width: 370px;
-    height: 315px;
     background: white;
     border-radius: 3px;
     &:before{
@@ -95,78 +71,6 @@ $iconhover:#27ae60;
             }
         }
     }
-}
-
-::-webkit-input-placeholder {
-  color: #ded9cf;
-}
-
-:-moz-placeholder {
-  color: #ded9cf !important;
-}
-
-.form input[type=text], input[type=password] {
-    font-size: 14px;
-    font-weight: 400;
-    padding: 10px 15px 10px 55px;
-    position: relative;
-    width: 200px;
-    height: 24px;
-    color: #676056;
-    border: none;
-    background: #f7f3eb;
-    color: #777;
-    transition: color 0.3s ease-out;
-    box-sizing: content-box;
-}
-
-.form input[type=text] {
-    margin-bottom: 15px;
-}
-
-.form input[type=text]:hover ~ i,
-.form input[type=password]:hover ~ i {
-    color: $iconhover;
-}
-
-.form input[type=text]:focus ~ i,
-.form input[type=password]:focus ~ i {
-    color:  $iconhover;
-}
-
-.form input[type=text]:focus,
-.form input[type=password]:focus,
-.form button[type=submit]:focus {
-    outline: none;
-}
-
-.form input[type=submit] {
-    margin-top: 35px;
-    width: 270px;
-    text-align: center;
-    font-size: 14px;
-    font-weight: bold;
-    padding: 12px 0;
-    letter-spacing: 0;
-    box-shadow: inset 0px 0px 0px 0px $buttonhover;
-
-  color: #fff;
-  background-color: $buttoncolor;
-  text-shadow: none;
-  text-transform: uppercase;
-  border: none;
-  cursor: pointer;
-  position: relative;
-  margin-bottom: 20px;
-  -webkit-animation: shadowFadeOut 0.4s;
-  -moz-animation: shadowFadeOut 0.4s;
-}
-
-.form input[type=submit]:hover,input[type=submit]:focus{
-  color: #fff;
-  box-shadow:inset 0px 46px 0px 0px $buttonhover;
-  -webkit-animation: shadowFade 0.4s;
-  -moz-animation: shadowFade 0.4s;
 }
 
 /*keyframes for input animation*/

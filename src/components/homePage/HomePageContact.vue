@@ -3,7 +3,7 @@
     <div class="container">
       <div class="section-title">
         <h2>Kontakt</h2>
-        <div class="title-description">W razie pytań skontaktuj się z nami</div>
+        <div class="title-description">{{texts.contactDescription}}</div>
       </div>
     </div>
   </section>
@@ -11,6 +11,7 @@
 
 <script>
 export default {
+props: ['texts'],
   data () {
     return {
 

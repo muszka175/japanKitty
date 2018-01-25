@@ -2,25 +2,28 @@
   <section class="offer" id="offer">
     <div class="offer-bg"></div>
     <div class="container">
-      <div class="content-offer">
+      <div class="row">
+      <div class="col-lg-6 content-offer">
         <div class="section-title">
           <h2>oferta</h2>
-          <div class="offer-description">Drugiej takiej nie znajdziesz</div>
+          <div class="offer-description">{{texts.offerDescription}}</div>
         </div>
         <div class="offer-list">
-          <div class="list">
-            <h5>Wersja podstawowa - 20zł</h5>
-            <h5>Wersja średniozaawansowana - 50zł</h5>
-            <h5>Wersja zaawansowana - 65zł</h5>
-          </div>
+          <ul class="list">
+            <li>{{texts.offerOption1}}</li>
+            <li>{{texts.offerOption2}}</li>
+            <li>{{texts.offerOption3}}</li>
+          </ul>
         </div>
       </div>
+    </div>
     </div>
   </section>
 </template>
 
 <script>
 export default {
+   props: ['texts'],
   data () {
     return {
 

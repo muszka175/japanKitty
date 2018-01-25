@@ -5,7 +5,8 @@ export default {
         Vue.http.post("login", credentials)
             .then((response) => {
                 if (response.status === 200 && 'token' in response.body.success) {
-                    localStorage.setItem('token', response.body.success.token)
+                    localStorage.setItem('token', response.body.success.token);
+                    localStorage.setItem('role', response.body.success.role);
                     Vue.http.headers.common['Authorization'] = response.body.success.token;
                     success(response.data)
                 }
@@ -18,9 +19,10 @@ export default {
         Vue.http.post("register", credentials)
             .then((response) => {
                 if (response.status === 200 && 'token' in response.body.success) {
-                    localStorage.setItem('token', response.body.success.token)
+                    localStorage.setItem('token', response.body.success.token);
+                    localStorage.setItem('role', response.body.success.role);
                     Vue.http.headers.common['Authorization'] = response.body.success.token;
-                success(response.data)
+                    success(response.data)
                 }
             })
             .catch(response => {
@@ -31,10 +33,12 @@ export default {
         Vue.http.post("logout")
             .then((response) => {
                 localStorage.removeItem('token')
+                localStorage.removeItem('role')
                 success(response.data)
             })
             .catch(response => {
                 localStorage.removeItem('token')
+                localStorage.removeItem('role')
                 error(response);
             })
     },
@@ -43,6 +47,9 @@ export default {
     },
     isSignedIn() {
         return localStorage.getItem('token') !== null;
+    },
+    isAdmin() {
+        return localStorage.getItem('role') === 'admin';
     }
 
 }

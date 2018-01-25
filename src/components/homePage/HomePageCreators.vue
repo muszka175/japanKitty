@@ -4,11 +4,9 @@
         <h2>Twórcy</h2>
         <div class="title-description">Poznaj naszą załogę</div>
       </div>
-    <div class="row">
       <div class="person-container">
         <single-person></single-person>
       </div>
-    </div>
   </section>
 </template>
 

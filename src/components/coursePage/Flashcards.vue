@@ -4,14 +4,14 @@
         <div class="container cards">
             <div class="type-buttons" v-if="!type">
               <div class="row">
-              <button class="col-md-4" @click="selectType(1)">Kanji</button>
-              <button class="col-md-4" @click="selectType(2)">Kana</button>
-              <button class="col-md-4" @click="selectType(3)">Polski</button>
+              <div class="cube-container col-md-4"><div class="cube"><a @click="selectType(1)">Kanji</a></div></div>
+              <div class="cube-container col-md-4"><div class="cube"><a @click="selectType(2)">Kana</a></div></div>
+              <div class="cube-container col-md-4"><div class="cube"><a @click="selectType(3)">Polski</a></div></div>
               </div>
             </div>
             <div v-if="type">
           <div class="row">
-            <div class="flashcards-container">
+            <div class="flashcards-container col-lg-6 col-md-8 col-sm-8">
               <div class="flashcards"> 
                 <span v-if="this.type === 1">{{ words[this.index].kanji }}</span>
                 <span v-if="this.type === 2">{{ words[this.index].kana }}</span>
@@ -47,7 +47,6 @@
 <script>
 
 export default {
-
   props: ['words'],
   data() {
     return {

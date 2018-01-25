@@ -1,19 +1,19 @@
 <template>
-    <div class="category">
+    <main class="category">
         <course-header></course-header> 
         <div class="container">
             <div class="category-list">
                 <div class="row">
                     <div class="container-cube col-md-4" v-for="category in this.categories">
                         <div class="cube">
-                            <span><router-link v-bind:to="'/game/' + gameId + '/category/' + category.id" exact>{{category.name}}</router-link></span>
-                        </div>
+                            <router-link v-bind:to="'/game/' + gameId + '/category/' + category.id" exact>{{category.name}}</router-link>
+                            </div>
                     </div>
                  
                 </div>
             </div>
         </div>
-    </div>
+    </main>
 </template>
 
 <script>

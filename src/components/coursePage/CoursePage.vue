@@ -1,9 +1,9 @@
 <template>
-  <div id="my-course">
+  <main id="my-course">
     <course-header></course-header> 
     
     <course></course>
-  </div>
+  </main>
 </template>
 
 <script>

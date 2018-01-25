@@ -1,6 +1,6 @@
 <template>
-<div>
-  <div class="team-member" v-for="creator in this.creators">
+<div class="row">
+  <div class="col-md-4 team-member" v-for="creator in this.creators">
     <div class="team-member-image">
       <img alt="zdjęcie twóców" :src="creator.image">
       <div class="title-wrap">
